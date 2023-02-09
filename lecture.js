@@ -19,6 +19,7 @@ console.log(allBtns);
 console.log(document.getElementsByClassName("btn"));
 */
 
+/*
 ///////////////////////////////////////////////////////////////
 
 // Creating and inserting elements
@@ -34,7 +35,7 @@ message.innerHTML =
 
 // Add element programmatically
 // header.prepend(message);
-header.append(message);
+// header.append(message);
 // header.append(message.cloneNode(true));
 // header.before(message);
 // header.after(message);
@@ -46,6 +47,8 @@ document
     // message.remove();
     message.parentElement.removeChild(message);
   });
+  
+*/
 
 /*
 
