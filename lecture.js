@@ -47,11 +47,11 @@ document
     // message.remove();
     message.parentElement.removeChild(message);
   });
-  
+
 */
 
 /*
-
+///////////////////////////////////////////////////////////////
 // Styles
 message.style.backgroundColor = "#37383d";
 message.style.width = "120%";
@@ -91,4 +91,24 @@ logo.classList.contains("c"); // not includes
 // Don't use
 // logo.className = "Nick";
 
+*/
+
+/*
+///////////////////////////////////////////////////////////////
+// Events
+const h1 = document.querySelector("h1");
+
+function alertH1(event) {
+  alert("addEventListener: Great!");
+}
+
+h1.addEventListener("mouseenter", alertH1);
+
+setTimeout(function () {
+  h1.removeEventListener("mouseenter", alertH1);
+}, 3000);
+
+// h1.onmouseenter = function (event) {
+//   alert("addEventListener: Great!");
+// };
 */
