@@ -53,3 +53,20 @@ btnScrollTo.addEventListener("click", function (event) {
   // Scrolling NEW SCHOOL
   section1.scrollIntoView({ behavior: "smooth" });
 });
+
+// Page navigation
+
+// 1. Add event listener to common parent element
+// 2. Determine what element originated the event
+
+document
+  .querySelector(".nav__links")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+
+    // Matching strategy
+    if (event.target.classList.contains("nav__link")) {
+      const sectionId = event.target.getAttribute("href");
+      document.querySelector(sectionId).scrollIntoView({ behavior: "smooth" });
+    }
+  });
