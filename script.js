@@ -101,3 +101,27 @@ tabsContainer.addEventListener("click", function (event) {
     .querySelector(`.operations__content--${clicked.dataset.tab}`)
     .classList.add("operations__content--active");
 });
+
+// Menu fade animation
+function handleHover(event, opacity) {
+  if (event.target.classList.contains("nav__link")) {
+    const link = event.target;
+    const siblings = link.closest(".nav").querySelectorAll(".nav__link");
+    const logo = link.closest(".nav").querySelector("img");
+
+    siblings.forEach(function (element) {
+      if (element != link) {
+        return (element.style.opacity = opacity);
+      }
+      return (logo.style.opacity = opacity);
+    });
+  }
+}
+
+nav.addEventListener("mouseover", function (event) {
+  handleHover(event, 0.5);
+});
+
+nav.addEventListener("mouseout", function (event) {
+  handleHover(event, 1);
+});
