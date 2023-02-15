@@ -9,6 +9,7 @@ const btnScrollTo = document.querySelector(".btn--scroll-to");
 
 const section1 = document.querySelector("#section--1");
 const nav = document.querySelector(".nav");
+const header = document.querySelector(".header");
 
 const tabs = document.querySelectorAll(".operations__tab");
 const tabsContainer = document.querySelector(".operations__tab-container");
@@ -125,3 +126,51 @@ nav.addEventListener("mouseover", function (event) {
 nav.addEventListener("mouseout", function (event) {
   handleHover(event, 1);
 });
+
+/*
+// Sticky navigation: Bad practice
+const initialCoords = section1.getBoundingClientRect();
+
+window.addEventListener("scroll", function () {
+  if (this.window.scrollY > initialCoords.top) {
+    nav.classList.add("sticky");
+  } else {
+    nav.classList.remove("sticky");
+  }
+});
+*/
+
+// Sticky navigation: Intersection Observer API
+// function observerCallBack(entries, observer) {
+//   entries.forEach(function (entry) {
+//     console.log(entry);
+//   });
+// }
+
+// const observerOptions = {
+//   root: null,
+//   threshold: [0, 0.2],
+// };
+
+// const observer = new IntersectionObserver(observerCallBack, observerOptions);
+// observer.observe(section1);
+
+const havHeight = nav.getBoundingClientRect().height;
+
+function stickyNav(entries) {
+  const [entry] = entries;
+  console.log(entry);
+
+  if (!entry.isIntersecting) {
+    nav.classList.add("sticky");
+  } else {
+    nav.classList.remove("sticky");
+  }
+}
+
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${havHeight}px`,
+});
+headerObserver.observe(header);
