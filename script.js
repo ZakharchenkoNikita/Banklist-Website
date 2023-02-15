@@ -1,7 +1,9 @@
 "use strict";
 
-// Modal window
+const btnScrollTo = document.querySelector(".btn--scroll-to");
+const section1 = document.querySelector("#section--1");
 
+// Modal window
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const btnCloseModal = document.querySelector(".btn--close-modal");
@@ -32,9 +34,7 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-const btnScrollTo = document.querySelector(".btn--scroll-to");
-const section1 = document.querySelector("#section--1");
-
+// Button scrolling
 btnScrollTo.addEventListener("click", function (event) {
   const s1coords = section1.getBoundingClientRect();
 
