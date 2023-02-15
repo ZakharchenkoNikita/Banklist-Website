@@ -8,6 +8,8 @@ const btnsOpenModal = document.querySelectorAll(".btn--show-modal");
 const btnScrollTo = document.querySelector(".btn--scroll-to");
 
 const section1 = document.querySelector("#section--1");
+const allSections = document.querySelectorAll(".section");
+
 const nav = document.querySelector(".nav");
 const header = document.querySelector(".header");
 
@@ -175,8 +177,6 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 headerObserver.observe(header);
 
 // Reveal sections
-const allSections = document.querySelectorAll(".section");
-
 function revealSection(entries, observer) {
   const [entry] = entries;
 
@@ -194,4 +194,4 @@ const sectionObserver = new IntersectionObserver(revealSection, {
 allSections.forEach(function (section) {
   sectionObserver.observe(section);
   section.classList.add("section--hidden");
-})
+});
