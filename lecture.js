@@ -112,3 +112,38 @@ setTimeout(function () {
 //   alert("addEventListener: Great!");
 // };
 */
+
+/*
+///////////////////////////////////////////////////////////////
+// Event Propagation in Practice
+function randomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function randomColor() {
+  return `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
+}
+
+document
+  .querySelector(".nav__link")
+  .addEventListener("click", function (event) {
+    this.style.backgroundColor = randomColor();
+    console.log("LINK", event.target, event.currentTarget);
+    console.log(event.currentTarget === this);
+
+    // Stop propagation
+    // event.stopPropagation(); // not really a good idea
+  });
+
+document
+  .querySelector(".nav__links")
+  .addEventListener("click", function (event) {
+    this.style.backgroundColor = randomColor();
+    console.log("CONTAINER", event.target, event.currentTarget);
+  });
+
+document.querySelector(".nav").addEventListener("click", function (event) {
+  this.style.backgroundColor = randomColor();
+  console.log("NAV", event.target, event.currentTarget);
+});
+*/
